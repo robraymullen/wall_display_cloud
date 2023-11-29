@@ -1,0 +1,21 @@
+.time {
+    font-size: 5em;
+    font-weight: bold;
+    padding-left: 0.2em;
+    
+}
+
+.time p {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.timeRow {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.dateText {
+    font-size: 2em;
+    padding-left: 2.5em;
+}

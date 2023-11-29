@@ -1,0 +1,10 @@
+.calendarEvent {
+    border-top: 1px solid white;
+    padding-bottom: 1em;
+}
+
+.birthdayEvent {
+    border-right: 1px solid white;
+    padding-bottom: 2em;
+    padding-left: 0.5em;
+}

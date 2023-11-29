@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: display-frontend-deployment
+  labels:
+    app: display-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: display-frontend
+  
+  template:
+    metadata:
+      name: display-frontend
+      labels:
+        app: display-frontend
+    spec:
+      containers:
+        - name: display-frontend
+          image: localhost:32000/display_frontend
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 80

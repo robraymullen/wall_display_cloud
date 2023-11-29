@@ -1,0 +1,41 @@
+.App {
+  margin: "0";
+  color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.bottomRow {
+  bottom: 0;
+  left:0;
+  position:absolute;
+  max-width: 40% !important;
+}
+
+.bottomRight {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+.flexCols {
+  position: relative;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}

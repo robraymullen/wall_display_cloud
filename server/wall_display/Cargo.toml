@@ -1,0 +1,26 @@
+[package]
+name = "wall_display"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+scraper = "0.13.0"
+reqwest = "0.11.13"
+chrono = "0.4.23"
+actix-cors = "0.6.4"
+actix-web = "4"
+google-calendar3 = "2.0.8+20210327"
+hyper = "^0.14"
+hyper-rustls = "^0.22"
+serde = "^1.0"
+serde_json = "^1.0"
+yup-oauth2 = "5.1.0"
+tokio = { version = "~1.17", features = [
+    "macros",
+    "io-util",
+    "rt",
+    "rt-multi-thread",
+    "fs",
+] }

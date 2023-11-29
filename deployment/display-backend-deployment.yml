@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: display-backend-deployment
+  labels:
+    app: display-backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: display-backend
+  
+  template:
+    metadata:
+      name: display-backend
+      labels:
+        app: display-backend
+    spec:
+      containers:
+        - name: display-backend
+          image: localhost:32000/display_backend
+          ports:
+            - containerPort: 80
+
