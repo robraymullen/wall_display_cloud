@@ -76,9 +76,10 @@ function App() {
 
       };
       await getWeather();
+      let tempDate;
   
       setInterval(async () => {
-        const tempDate = new Date();
+        tempDate = new Date();
         const isNewDay = currentDate.getDate() !== tempDate.getDate();
         const isNewHour = currentDate.getHours() !== tempDate.getHours();
         if (isNewDay) {
@@ -96,7 +97,7 @@ function App() {
           const sunset = weatherLocal.list[0].sunset * 1000;
           if (tempDate.getTime() > sunrise && tempDate.getHours() < 12) { //morning
             setImageIndex(0);
-          } else if (tempDate.getHours() > 12 && tempDate.getHours() < 7) { // noon
+          } else if (tempDate.getHours() > 12 && tempDate.getTime() < sunset) { // noon
             setImageIndex(1);
           } else { // night
             setImageIndex(2);

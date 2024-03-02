@@ -37,16 +37,16 @@ function News() {
 
         
 
-        const getFacts = async () => {
-            const apiKey = "DKneXye2wzgNuhZ9Ay8a6A==ZtAzTQLEn9anuNKM";
-            const factResponse = await fetch("https://api.api-ninjas.com/v1/facts?limit=50", {
-            headers: {
-                'X-Api-Key': apiKey
-                }
-            });
-            const factJson = await factResponse.json();
-            return factJson.map((resultItem: any) => { return {text: resultItem.fact, source: "Daily Facts"}; });
-        };
+        // const getFacts = async () => {
+        //     const apiKey = "DKneXye2wzgNuhZ9Ay8a6A==ZtAzTQLEn9anuNKM";
+        //     const factResponse = await fetch("https://api.api-ninjas.com/v1/facts?limit=50", {
+        //     headers: {
+        //         'X-Api-Key': apiKey
+        //         }
+        //     });
+        //     const factJson = await factResponse.json();
+        //     return factJson.map((resultItem: any) => { return {text: resultItem.fact, source: "Daily Facts"}; });
+        // };
 
         const getRedditPosts = async () => {
             const redditPostJson = await Promise.all([
@@ -83,10 +83,10 @@ function News() {
 
         const  startItemChangeLoop = async () => {
             let redditPosts = await getRedditPosts();
-            let wordOfTheDay = await getWordOfTheDay();
-            let facts = await getFacts();
+            await getWordOfTheDay();
+            // let facts = await getFacts();
             clearInterval(currentSetIntervalId);
-            allItems = [...redditPosts, ...facts, wordOfTheDay];
+            allItems = [...redditPosts, wordOfTheDay];
             shuffle(allItems);
             setCurrentItem(allItems.pop());
             currentSetIntervalId = setInterval(async () => {
@@ -94,9 +94,9 @@ function News() {
                     setCurrentItem(allItems.pop());
                 } else {
                     redditPosts = await getRedditPosts();
-                    wordOfTheDay = await getWordOfTheDay();
-                    facts = await getFacts();
-                    allItems = [...redditPosts, ...facts, wordOfTheDay];
+                    await getWordOfTheDay();
+                    // facts = await getFacts();
+                    allItems = [...redditPosts, wordOfTheDay];
                     shuffle(allItems);
                     setCurrentItem(allItems.pop());
                 }
