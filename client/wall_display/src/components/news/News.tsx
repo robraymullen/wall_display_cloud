@@ -3,8 +3,6 @@ import './News.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 let currentSetIntervalId : any;
-// let refreshIntervalId: any;
-// let currentItemCounter = 0;
 
 const styles = {
     item: {
@@ -36,18 +34,6 @@ function News() {
         let wordIntervalId: any;
 
         
-
-        // const getFacts = async () => {
-        //     const apiKey = "DKneXye2wzgNuhZ9Ay8a6A==ZtAzTQLEn9anuNKM";
-        //     const factResponse = await fetch("https://api.api-ninjas.com/v1/facts?limit=50", {
-        //     headers: {
-        //         'X-Api-Key': apiKey
-        //         }
-        //     });
-        //     const factJson = await factResponse.json();
-        //     return factJson.map((resultItem: any) => { return {text: resultItem.fact, source: "Daily Facts"}; });
-        // };
-
         const getRedditPosts = async () => {
             const redditPostJson = await Promise.all([
                 fetch("https://www.reddit.com/r/worldnews/best.json?sort=new"), 
@@ -84,7 +70,6 @@ function News() {
         const  startItemChangeLoop = async () => {
             let redditPosts = await getRedditPosts();
             await getWordOfTheDay();
-            // let facts = await getFacts();
             clearInterval(currentSetIntervalId);
             allItems = [...redditPosts, wordOfTheDay];
             shuffle(allItems);
@@ -95,7 +80,6 @@ function News() {
                 } else {
                     redditPosts = await getRedditPosts();
                     await getWordOfTheDay();
-                    // facts = await getFacts();
                     allItems = [...redditPosts, wordOfTheDay];
                     shuffle(allItems);
                     setCurrentItem(allItems.pop());

@@ -135,7 +135,7 @@ async fn main() -> std::io::Result<()> {
             .service(birthdays)
             .service(word_of_the_day)
     })
-    .bind(("0.0.0.0", 80))?
+    .bind(("0.0.0.0", 8089))?
     .run()
     .await
 }

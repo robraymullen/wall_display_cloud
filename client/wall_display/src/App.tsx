@@ -58,7 +58,7 @@ function App() {
       const getWeather = async () => {
         if (apiCallCount < 1) {
           setApiCallCount(apiCallCount+1);
-          fetch("http://api.openweathermap.org/data/2.5/forecast/daily?q=Clane,ie&units=metric&cnt=3&=&appid=0f4449173c5906eab99896883e8466df")
+          fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?q=Clane,ie&units=metric&cnt=3&=&appid=${process.env.WEATHER_API_KEY}`)
           .then(response => response.json())
               .then((res) => {
                   // inWeather.city.coord.lat += 0.00001; 
